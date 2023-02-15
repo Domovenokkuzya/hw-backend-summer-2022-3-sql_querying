@@ -1,7 +1,7 @@
 # INFO
 # Вывести топ 5 самых коротких по длительности перелетов.  Duration - разница между scheduled_arrival и scheduled_departure.
 # В ответе должно быть 2 колонки [flight_no, duration]
-TASK_1_QUERY = select flight_no, scheduled_arrival - scheduled_departure as duration from flights ORDER BY duration ASC LIMIT 5;
+TASK_1_QUERY = "select flight_no, scheduled_arrival - scheduled_departure as duration from flights ORDER BY duration ASC LIMIT 5;"
 
 #  flight_no | duration
 # -----------+----------
@@ -16,7 +16,7 @@ TASK_1_QUERY = select flight_no, scheduled_arrival - scheduled_departure as dura
 # Вывести топ 3 рейса по числу упоминаний в таблице flights
 # количество упоминаний которых меньше 50
 # В ответе должно быть 2 колонки [flight_no, count]
-TASK_2_QUERY =  select flight_no, COUNT(1) from flights group by flight_no having COUNT(1)<50 ORDER BY COUNT(1) DESC LIMIT 3;
+TASK_2_QUERY =  "select flight_no, COUNT(1) from flights group by flight_no having COUNT(1)<50 ORDER BY COUNT(1) DESC LIMIT 3;"
 #  flight_no | count
 # -----------+-------
 #  PG0260    |    27
@@ -26,7 +26,7 @@ TASK_2_QUERY =  select flight_no, COUNT(1) from flights group by flight_no havin
 # INFO
 # Вывести число перелетов внутри одной таймзоны
 # Нужно вывести 1 значение в колонке count
-TASK_3_QUERY =  select count(1) from flights as f right join airports_data as ad on f.departure_airport=ad.airport_code right join airports_data as ad1 on f.arrival_airport=ad1.airport_code where ad.timezone=ad1.timezone;
+TASK_3_QUERY =  "select count(1) from flights as f right join airports_data as ad on f.departure_airport=ad.airport_code right join airports_data as ad1 on f.arrival_airport=ad1.airport_code where ad.timezone=ad1.timezone;"
 
 #  count
 # --------
