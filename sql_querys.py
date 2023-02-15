@@ -16,8 +16,7 @@ TASK_1_QUERY = """
 # Вывести топ 3 рейса по числу упоминаний в таблице flights
 # количество упоминаний которых меньше 50
 # В ответе должно быть 2 колонки [flight_no, count]
-TASK_2_QUERY = """
-"""
+TASK_2_QUERY =  select flight_no, COUNT(1) from flights group by flight_no having COUNT(1)<50 ORDER BY COUNT(1) DESC LIMIT 3;
 #  flight_no | count
 # -----------+-------
 #  PG0260    |    27
