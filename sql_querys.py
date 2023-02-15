@@ -26,8 +26,8 @@ TASK_2_QUERY =  select flight_no, COUNT(1) from flights group by flight_no havin
 # INFO
 # Вывести число перелетов внутри одной таймзоны
 # Нужно вывести 1 значение в колонке count
-TASK_3_QUERY = """
-"""
+TASK_3_QUERY =  select count(1) from flights as f right join airports_data as ad on f.departure_airport=ad.airport_code right join airports_data as ad1 on f.arrival_airport=ad1.airport_code where ad.timezone=ad1.timezone;
+
 #  count
 # --------
 #  16824
